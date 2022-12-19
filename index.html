@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ingreso</title>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Short+Stack&display=swap');
+
+    * {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Rubik", serif;
+        color: black;
+        /*scroll-behavior: smooth;*/
+
+        /*text-shadow: 1px 1px 2px rgb(32 52 66 / 10%);*/
+    }
+    .nav-1 {
+        max-width: 700px;
+        background-color: black;
+        margin: 0 auto;
+    }
+
+    .nav-1 li {
+        margin: 10px;
+        font-size: 32px;
+        color: aliceblue;
+        display: inline-block;
+        padding-right: 500px;
+        background-color: black;
+        cursor: pointer;
+    }
+
+    .nav-index{
+        text-align: left;
+    }
+
+    #logo333{
+        width: 90px;
+        
+    }
+    .nav-1 li:hover {
+        color: #686863;
+    }
+    body {
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    form {
+        margin: 0 auto;
+        background-color: #a9a9a9;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: 0 0 rgb(0 0 0 / 0%), 0 0 rgb(0 0 0 / 0%), 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -2px rgb(0 0 0 / 5%);
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .input {
+        height: 50px;
+        color: #000001;
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 8px;
+        padding: 0 20px;
+        display: flex;
+        font-size: 25px;
+        color: black;
+
+    }
+
+    input[type=submit] {
+        width: 100%;
+        height: 50px;
+        background: #F6DF1C;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        border: 1px solid black;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    input:hover{
+        background-color: gray;
+        border: 1px solid black;
+        box-shadow: 3px 3px 3px #000001;
+        color: #222;
+    }
+
+    label {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+        font-size: 18px;
+    }
+
+    #preview {
+        width: 180px;
+        height: 180px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+    }
+   
+    h2 {
+        margin-bottom: 20px;
+    }
+   
+
+    .inputContainer {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        font-size: 30px;
+        color: #000001;
+    }
+    .inputContainer input {
+        background-color: red;
+        opacity: 0;
+        z-index: 1;
+    }
+    .inputContainer button {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        border-radius: 8px;
+        z-index: 0;
+        color: black;
+    }
+    div .form-container2{
+        display: flex;
+        margin-bottom: 20px;
+        color: aliceblue;
+        border: 1px solid black;
+    }
+
+    .photo{
+        background: #F6DF1C;
+        color: black;
+        border: 1px solid black;
+        cursor: pointer;
+        font-size: 26px;
+    }
+
+    #opciones2 {
+        margin: 0 auto;
+        padding-left: 20px;
+        width: 300px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        cursor: pointer;
+}
+
+    #nombre2{
+        margin-left: 5px;
+        width: 215px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        padding: 0 10px;
+}
+
+    #rut2{
+        margin-left: 5px;
+        width: 300px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        padding: 0 10px;
+}
+
+    #depto2{
+        margin-left: 5px;
+        width: 232px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        padding: 0 10px;
+        margin-bottom: 10px;
+}
+#opciones3{
+        margin-left: 5px;
+        width: 300px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        padding: 0 10px;
+        margin-bottom: 10px;
+}
+
+
+    #ppu2{
+        margin-left: 5px;
+        width: 260px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        padding: 0 10px;
+        margin-bottom: 10px;
+}
+
+#ppu44{
+        margin-left: 5px;
+        width: 235px;
+        font-size: 16px;
+        background-color: aliceblue;
+        color: #000001;
+        border: 1px solid black;
+        padding: 0 10px;
+        margin-bottom: 10px;
+}
+
+    </style>
+    <header>
+        <nav>
+        <ul class="nav-1">
+           <img id="logo333" src="./logo33.png" alt="">
+        </ul>
+    </nav>
+    </header>
+    <body>     
+    <form  method='post' action='https://backend-akusete.herokuapp.com/upload3' enctype="multipart/form-data">
+    <h1>CONTROL DE INGRESO</h1>
+    <h2>HOSPITAL ROBERTO DEL RIO</h2>
+    <div class="form-container2">
+        <select id='opciones2' name='opciones2'>
+        <option value='0'>Proveedor o funcionario</option>
+        <option value='Proveedor'>Proveedor</option>
+        <option value='Otro'>Otro</option>
+        <option value='Funcionario'>Funcionario</option>
+        </select><br>
+        <select type='text' name='rut2' id='rut2' /><br>
+        <option value='11'>Selecciona acá la Porteria</option>
+        <option value='Zañartu'>Zañartu</option>
+        <option value='Santa Maria'>Santa Maria</option>
+        <option value='Lateral Urgencia'>Lateral Urgencia</option>
+        </select><br>  
+        <select type='text' name='opciones3' id='opciones3' onchange='cambioOpciones3();'><br> 
+        <option value='0'>Selecciona acá la Patente</option>
+        <option value='205'>Vehiculo Sin Patente Registrada</option>
+        <option value='1'>BBZY 17</option>
+        <option value='2'>BGCB 60</option>
+        <option value='3'>BGXP 40</option>
+        <option value='4'>BK 2528</option>
+        <option value='5'>BKZS 54</option>
+        <option value='6'>BLJL 53</option>
+        <option value='7'>BPZB 92</option>
+        <option value='8'>BSPG 29</option>
+        <option value='9'>BWHH 90</option>
+        <option value='10'>CCKS 77</option>
+        <option value='11'>CDRZ 76</option>
+        <option value='12'>CFPP 32</option>
+        <option value='13'>CIGL 16</option>
+        <option value='14'>CKGJ 95</option>
+        <option value='15'>CLLJ 48</option>
+        <option value='16'>CSBR 68</option>
+        <option value='17'>CSCL 77</option>
+        <option value='18'>CTBC 81</option>
+        <option value='19'>CWKD 22</option>
+        <option value='20'>CWKD 30 </option>
+        <option value='21'>DFZV 64</option>
+        <option value='22'>DGKB 46</option>
+        <option value='23'>DPPZ 27</option>
+        <option value='24'>DSKF 76</option>
+        <option value='25'>DSTZ 35</option>
+        <option value='26'>DTVB 30</option>
+        <option value='27'>FKGL 16</option>
+        <option value='28'>FSBC 88</option>
+        <option value='29'>FSCB 88</option>
+        <option value='30'>FVBW 42</option>
+        <option value='31'>FWLX 32</option>
+        <option value='32'>FYYT 81</option>
+        <option value='33'>FZWB 44</option>
+        <option value='34'>GBHB 57</option>
+        <option value='35'>GCJZ 72</option>
+        <option value='36'>GGZW 49</option>
+        <option value='37'>GKLS 31</option>
+        <option value='38'>GKXP 78</option>
+        <option value='39'>GLJH 12</option>
+        <option value='40'>GPDX 98</option>
+        <option value='41'>GPLJ 84</option>
+        <option value='42'>GPVG 92</option>
+        <option value='43'>GRZB 47</option>
+        <option value='44'>GSFY 73</option>
+        <option value='45'>GSXT 90</option>
+        <option value='46'>GVBE 10</option>
+        <option value='47'>GVBF 11</option>
+        <option value='48'>GWSV 99</option>
+        <option value='49'>GXCH 25</option>
+        <option value='50'>GXDT 26</option>
+        <option value='51'>GYLS 93</option>
+        <option value='52'>HCLS 77</option>
+        <option value='53'>HDHG 76</option>
+        <option value='54'>HFFD 19</option>
+        <option value='55'>HFPR 97</option>
+        <option value='56'>HGDL 55</option>
+        <option value='57'>HGZK 65</option>
+        <option value='58'>HHBK 19</option>
+        <option value='59'>HHGC 90</option>
+        <option value='60'>HHLT 25</option>
+        <option value='61'>HJGF 41</option>
+        <option value='62'>HJGF 42</option>
+        <option value='63'>HJHF 54</option>
+        <option value='64'>HJMV 38</option>
+        <option value='65'>HJRU 38</option>
+        <option value='66'>HJRV 38</option>
+        <option value='67'>HJSF 41</option>
+        <option value='68'>HKPT 91</option>
+        <option value='69'>HKR 38</option>
+        <option value='70'>HKRP 91</option>
+        <option value='71'>HKVF 97</option>
+        <option value='72'>HLBW 95</option>
+        <option value='73'>HLBZ 97</option>
+        <option value='74'>HLXZ 26</option>
+        <option value='75'>HPJP 68</option>
+        <option value='76'>HPVH 45</option>
+        <option value='77'>HRYR 32</option>
+        <option value='78'>HRYT 49</option>
+        <option value='79'>HSWS 85</option>
+        <option value='80'>HTKW 13</option>
+        <option value='81'>HUKY 25</option>
+        <option value='82'>HVFK 97</option>
+        <option value='83'>HVFK 99</option>
+        <option value='84'>HVGJ 95</option>
+        <option value='85'>HYGX 43</option>
+        <option value='86'>HZZJ 84</option>
+        <option value='87'>JBCD 27</option>
+        <option value='88'>JBDB 21</option>
+        <option value='89'>JDBY 56</option>
+        <option value='90'>JDNL 23</option>
+        <option value='91'>JFBR 12</option>
+        <option value='92'>JFVV 76</option>
+        <option value='93'>JGVD 49</option>
+        <option value='94'>JJJF 20</option>
+        <option value='95'>JKVL12</option>
+        <option value='96'>JLJD 20</option>
+        <option value='97'>JLJH 12</option>
+        <option value='98'>JLJH 15</option>
+        <option value='99'>JPSX 60</option>
+        <option value='100'>JRVA 97</option>
+        <option value='101'>JRWY 23</option>
+        <option value='102'>JSFK 32</option>
+        <option value='103'>JSFR 67</option>
+        <option value='104'>JSRZ 65</option>
+        <option value='105'>JTGT 69</option>
+        <option value='106'>JVLT 82</option>
+        <option value='107'>JWLT 82</option>
+        <option value='108'>JWTZ 54</option>
+        <option value='109'>JYFL 12</option>
+        <option value='110'>JZZB 72</option>
+        <option value='111'>KBFV 73</option>
+        <option value='112'>KCWS 39</option>
+        <option value='113'>KFHC 23</option>
+        <option value='114'>KHBK 15</option>
+        <option value='115'>KHBK 19</option>
+        <option value='116'>KHZZ 94</option>
+        <option value='117'>KJLY 65</option>
+        <option value='118'>KJTD 78</option>
+        <option value='119'>KJXT 62</option>
+        <option value='120'>KKZX 42</option>
+        <option value='121'>KLDS 58</option>
+        <option value='122'>KLFP 74</option>
+        <option value='123'>KPTP 20</option>
+        <option value='124'>KRZY 63</option>
+        <option value='125'>KSBX 81</option>
+        <option value='126'>KSSD 24</option>
+        <option value='127'>KTRH 28</option>
+        <option value='128'>KTRH 29</option>
+        <option value='129'>KTTG 16</option>
+        <option value='130'>KTVJ 66</option>
+        <option value='131'>KTXG 27</option>
+        <option value='132'>KWGP 60</option>
+        <option value='133'>KWKL 89</option>
+        <option value='134'>KXKJ 79</option>
+        <option value='135'>KYJR 49</option>
+        <option value='136'>KYSD 98</option>
+        <option value='137'>LBWL 17</option>
+        <option value='138'>LCKD 81</option>
+        <option value='139'>LCXV 66</option>
+        <option value='140'>LFFR 86</option>
+        <option value='141'>LGBV 5</option>
+        <option value='142'>LGDF 44</option>
+        <option value='143'>LHBC 33</option>
+        <option value='144'>LHJB 62</option>
+        <option value='145'>LJCR 25</option>
+        <option value='146'>LJPY 20 </option>
+        <option value='147'>LJSR 95</option>
+        <option value='148'>LLJF 80</option>
+        <option value='149'>LLVG 75</option>
+        <option value='150'>LLXT 12</option>
+        <option value='151'>LPYW 39</option>
+        <option value='152'>LRLG 86</option>
+        <option value='153'>LTKH 57</option>
+        <option value='154'>LVBW 78</option>
+        <option value='155'>LVGV 42</option>
+        <option value='156'>LWFR 30</option>
+        <option value='157'>LX 5579</option>
+        <option value='158'>LXFH 16</option>
+        <option value='159'>LXSF 79</option>
+        <option value='160'>LYCD 52</option>
+        <option value='161'>LYGP 15</option>
+        <option value='162'>LYHC 78</option>
+        <option value='163'>PCLJ 85</option>
+        <option value='164'>PCYS 55</option>
+        <option value='165'>PCZD 62</option>
+        <option value='166'>PDWJ 73</option>
+        <option value='167'>PFBP 97</option>
+        <option value='168'>PFTY 16</option>
+        <option value='169'>PGBF 52</option>
+        <option value='170'>PGHH 14</option>
+        <option value='171'>PGHH 59</option>
+        <option value='172'>PGSX 99</option>
+        <option value='173'>PGVP 94</option>
+        <option value='174'>PHTT 59</option>
+        <option value='175'>PHUR 75</option>
+        <option value='176'>PHYW 46</option>
+        <option value='177'>PJHS 20</option>
+        <option value='178'>PJPC 65</option>
+        <option value='179'>PKVR 75</option>
+        <option value='180'>PLGB 86</option>
+        <option value='181'>PLKW 64</option>
+        <option value='182'>PLPR 34</option>
+        <option value='183'>PLYD 66</option>
+        <option value='184'>PLZD 62</option>
+        <option value='185'>PMXZ 56</option>
+        <option value='186'>PPPE 33</option>
+        <option value='187'>PPWJ 73</option>
+        <option value='188'>PPWY 16</option>
+        <option value='189'>PPWZ 54</option>
+        <option value='190'>PPZC 99</option>
+        <option value='191'>PPZZ 69</option>
+        <option value='192'>PSHJ 43</option>
+        <option value='193'>PSPG 29</option>
+        <option value='194'>PSXW 92</option>
+        <option value='195'>PTGC 21</option>
+        <option value='196'>PYYV 76</option>
+        <option value='197'>RBCB 32</option>
+        <option value='198'>RCLX 28</option>
+        <option value='199'>RJHW 93</option>
+        <option value='200'>RKBZ 22</option>
+        <option value='201'>RYBL 89</option>
+        <option value='202'>TJHW 92</option>
+        <option value='203'>TKVR 75</option>
+        <option value='204'>XPXC 31</option>
+
+    </select><br>   
+        Patente <input type='text' name='ppu44' id='ppu44'/><br>
+        Proveedor <input type='text' name='nombre2' id='nombre2'/><br>      
+        Destino <input type='text' name='depto2' id='depto2'/><br>   
+    </div> 
+    <label for="opt1">
+        <input type="checkbox" name="opt11" id="opt11" value="Esta autorizado por Mandante">
+        Esta autorizado por Mandante
+    </label>
+    </label>
+    <input class="input" type="hidden" name="subject" value="Nuevo Reporte" placeholder="Asunto" required>
+    <input class="input" type="hidden" name="message" value="Reporte adjunto" placeholder="Mensaje" required>
+    <div class="inputContainer">
+        <input class="input" type="file" accept="image/*" name="fileUploaded" id="fileInput" required>
+        <button class="photo" type="button">Tomar foto guia despacho</button>
+    </div>
+    <img id="preview" src="#"  />
+    <input type="submit" value="Enviar Ingreso">
+</form>
+<script>
+    const fileInput = document.getElementById("fileInput");
+    const preview = document.getElementById("preview");
+      fileInput.onchange = evt => {
+        const [file] = fileInput.files
+        if (file) {
+          preview.src = URL.createObjectURL(file)
+        }
+      }
+
+      var opciones3 = {
+"0": ["","",""],
+"1": ["ARENAS","BODEGA","BBZY 17"],
+"2": ["ABOT","BOOL","BGCB 60"],
+"3": ["DRA ENDOCRINOLOGA","ENFERMERIA","BGXP 40"],
+"4": ["DR. LUIS CALVO MACKENA","LABORATORIO","BK 2528"],
+"5": ["M C MACKENA","LABORATORIO","BKZS 54"],
+"6": ["CMD","BANCO DE SANGRE ","BLJL 53"],
+"7": ["SALUD LAMPA","LABORATORIO","BPZB 92"],
+"8": ["CHILE EXPRES","LABORATORIO","BSPG 29"],
+"9": ["CRT","UPC","BWHH 90"],
+"10": ["PACIENTE","ONCOLOGIA","CCKS 77"],
+"11": ["CMS","PABELLON","CDRZ 76"],
+"12": ["ETHAN","BODEGA","CFPP 32"],
+"13": ["COMRECOLETA ","CASINO","CIGL 16"],
+"14": ["CONTROL URACI","DISCAPACIDAD PACIENTE","CKGJ 95"],
+"15": ["MANTENCION","BODEGA","CLLJ 48"],
+"16": ["CONTROL ONCOLOGICO","PACIENTE CONTROL","CSBR 68"],
+"17": ["HOSPITAL SALAMANCA","CARDIO POLI","CSCL 77"],
+"18": ["COMERCIAL RECOLETA","ALIMENTACION ","CTBC 81"],
+"19": ["BRENDEN  MASTER ","CASINO ","CWKD 22"],
+"20": ["BREN  MASTER ","CASINO ","CWKD 30 "],
+"21": ["PEDIATRIA","PEDIATRIA","DFZV 64"],
+"22": ["LUBEC","ONCOLOGIA","DGKB 46"],
+"23": ["VEOLIA ","REA ","DPPZ 27"],
+"24": ["DIFEM","BODEGA","DSKF 76"],
+"25": ["KINESIOLOGIA","PACIENTE CONTROL","DSTZ 35"],
+"26": ["QUINE QUE","POLI QUEMADOS","DTVB 30"],
+"27": ["COM RECOLETA","ALIMENTACION","FKGL 16"],
+"28": ["ALL HOM","BODEGA","FSBC 88"],
+"29": ["ALLHOE","URACI","FSCB 88"],
+"30": ["TIMD","RAYOS","FVBW 42"],
+"31": ["SENCONET","BODEGA","FWLX 32"],
+"32": ["THERAPIA","ESTERILIZACION","FYYT 81"],
+"33": ["FRIMED","BODEGA","FZWB 44"],
+"34": ["CENTRO  DE SANGRE ","","GBHB 57"],
+"35": ["TECNIKA","BODEGA","GCJZ 72"],
+"36": ["VESULIUS","OXIGENO","GGZW 49"],
+"37": ["NOVO FARMA ","LABORATORIO","GKLS 31"],
+"38": ["JHONSON","","GKXP 78"],
+"39": ["METROPOLITANO","BANCO DE SANGRE ","GLJH 12"],
+"40": ["AMB QUILICURA","PACIENTE CONTROL","GPDX 98"],
+"41": ["LAB SANDERON","FARMACIA","GPLJ 84"],
+"42": ["TAXI ","PREV.  DE R.  AUTORIZADA  SIN  TARJ.","GPVG 92"],
+"43": ["","LABORATORIO","GRZB 47"],
+"44": ["TAXI P","GINECOLOGIA","GSFY 73"],
+"45": ["","CAE","GSXT 90"],
+"46": ["DOUBLE MEDICAL","ESTERILIZACION","GVBE 10"],
+"47": ["DOBLYMED","ESTERILIZACION","GVBF 11"],
+"48": ["FRUTIVERDE","ALIMENTACION","GWSV 99"],
+"49": ["HOSPITALIA","BODEGA","GXCH 25"],
+"50": ["CLIBRA","BODEGA","GXDT 26"],
+"51": ["HOG SANTA CLARA","TECNOLOGIA","GYLS 93"],
+"52": ["VIBANCO EXPRES","BODEGA","HCLS 77"],
+"53": ["ESAT","ASCENSORES","HDHG 76"],
+"54": ["ML SABAL","BODEGA ","HFFD 19"],
+"55": ["ANGELICA","RX","HFPR 97"],
+"56": ["CASTILLOBCO SAGRE","BANCO DE SANGRE ","HGDL 55"],
+"57": ["HP","AIRE ACONDICIONADO","HGZK 65"],
+"58": ["PARACLINIC","ESTERILIZACION","HHBK 19"],
+"59": ["SUSARON","CASINO","HHGC 90"],
+"60": ["EXEQUIEL CORTES","CAJERO","HHLT 25"],
+"61": ["METROPOLITANO","BANCO DE SANGRE ","HJGF 41"],
+"62": ["AGUA ","","HJGF 42"],
+"63": ["ARIBRA","LABORATORIO","HJHF 54"],
+"64": ["CESFAR","ONCOLOGIA","HJMV 38"],
+"65": ["CEFAN QUILICURA","ONCOLOGIA","HJRU 38"],
+"66": ["CESFAR","ONCOLOGIA ","HJRV 38"],
+"67": ["CENTRO DE SANGRE","BANCO DE SANGRE ","HJSF 41"],
+"68": ["NACO FARMA","BODEGA","HKPT 91"],
+"69": ["RENTOKILL","CASINO","HKR 38"],
+"70": ["NANO FARMA","BODEGA","HKRP 91"],
+"71": ["SESFAR","FARMACIA","HKVF 97"],
+"72": ["HOG SN RICARDO","PEDIATRIA","HLBW 95"],
+"73": ["DOCTORA","URGECIA","HLBZ 97"],
+"74": ["GOLDEN","ROPERIA","HLXZ 26"],
+"75": ["PROMEDON","PABELLON","HPJP 68"],
+"76": ["VIC","SAN BORJA","HPVH 45"],
+"77": ["RECOLCINE","BODEGA","HRYR 32"],
+"78": ["","LABORATORIO","HRYT 49"],
+"79": ["MOUCARE","OFTALMOLOGIA","HSWS 85"],
+"80": ["TRANS FARMA","BANCO DE SANGRE ","HTKW 13"],
+"81": ["FARMALATINA","LABORATORIO","HUKY 25"],
+"82": ["REDSANA","ONCOLOGIA ","HVFK 97"],
+"83": ["THERAPIA","PABELLON","HVFK 99"],
+"84": ["TIMED","RX","HVGJ 95"],
+"85": ["INMED","BODEGA","HYGX 43"],
+"86": ["LIM CHILE","LIM CHILE","HZZJ 84"],
+"87": ["HOFFMAN","EG MEDICAS","JBCD 27"],
+"88": ["BECTOR","BODEGA","JBDB 21"],
+"89": ["ALDO CANTILLANA","CIRUGIA","JDBY 56"],
+"90": ["TRANSUMED","BODEGA","JDNL 23"],
+"91": ["CRIMES","CARDIO CIRUGIA","JFBR 12"],
+"92": ["MARCK","BODEGA","JFVV 76"],
+"93": ["CARNES ÑUBLE","CASINO","JGVD 49"],
+"94": ["NACO FARM","BODEGA","JJJF 20"],
+"95": ["FRIMED","UCI","JKVL12"],
+"96": ["GRUPO RIOS","LABORATORIO","JLJD 20"],
+"97": ["METROPOLILANO","BANCO DE SANGRE ","JLJH 12"],
+"98": ["METROPOL NORTE","BANCO DE SANGRE ","JLJH 15"],
+"99": ["OPTICOS VENA VER","AUDITORIO","JPSX 60"],
+"100": ["TRANS. Y LOGISTICA","BODEGA","JRVA 97"],
+"101": ["","PABELLON","JRWY 23"],
+"102": ["ONCO ","","JSFK 32"],
+"103": ["DEP DE SALUD ","HUECHURABA","JSFR 67"],
+"104": ["CHILE EXPRESS","LABORATORIO","JSRZ 65"],
+"105": ["ACORDIS","PABELLON","JTGT 69"],
+"106": ["GOLDEN","ROPERIA","JVLT 82"],
+"107": ["GOLDEN CLEAM","ROPERIA","JWLT 82"],
+"108": ["FEDEX","BOOL","JWTZ 54"],
+"109": ["PANADERIA","VISTA HERMOSA","JYFL 12"],
+"110": ["TELEFRUT","ALIMENTACION ","JZZB 72"],
+"111": ["NUEVO SALUD","BODEGA","KBFV 73"],
+"112": ["","RX","KCWS 39"],
+"113": ["MIN RECOLETA","LABORATORIO","KFHC 23"],
+"114": ["PARACLINIC","ESTERILIZACION","KHBK 15"],
+"115": ["PARACLINIC","ESTERILIZACION","KHBK 19"],
+"116": ["UCIC","UCI","KHZZ 94"],
+"117": ["PACIENTE","CIRUGIA","KJLY 65"],
+"118": ["PARAMA","BODEGA","KJTD 78"],
+"119": ["COM VICTOR C","UCI CARDIO","KJXT 62"],
+"120": ["NOVILA","BODEGA","KKZX 42"],
+"121": ["DIGA FLOW","LABORATORIO","KLDS 58"],
+"122": ["HOSHMAN","UPC","KLFP 74"],
+"123": ["BULFOR","BODEGA","KPTP 20"],
+"124": ["SANTA FORD","FARMACIA","KRZY 63"],
+"125": ["EMERGENCIA ","","KSBX 81"],
+"126": ["CORP MEDICAL","PABELLON","KSSD 24"],
+"127": ["CHIBRA","BOOL","KTRH 28"],
+"128": ["BCM","LABORATORIO","KTRH 29"],
+"129": ["TRNS FARM","LABORATORIO","KTTG 16"],
+"130": ["DISAL ","ASEO  BAÑOS  QUIMICOS ","KTVJ 66"],
+"131": ["","KINESIOLOGIA","KTXG 27"],
+"132": ["","DIRECCION ","KWGP 60"],
+"133": ["TLN","BODEGA","KWKL 89"],
+"134": ["TRANFAIMA","BODEGA","KXKJ 79"],
+"135": ["ALAZEN","BARRERA","KYJR 49"],
+"136": ["ULMTAR","BODEGA","KYSD 98"],
+"137": ["MASBIEN AGUA","PEDIATRIA","LBWL 17"],
+"138": ["LOGISTICA ","","LCKD 81"],
+"139": ["CONVATEC","BODEGA","LCXV 66"],
+"140": ["MIFILM","RAYOS","LFFR 86"],
+"141": ["TECNO IMAGEN","BODEGA","LGBV 5"],
+"142": ["CASINO","LIPIGAS","LGDF 44"],
+"143": ["CMS","PABELLON","LHBC 33"],
+"144": ["JOSEFINA MARTIN","JARDIN","LHJB 62"],
+"145": ["OPCUNE","INFORMATICA","LJCR 25"],
+"146": ["PRILOGIC","ABASTECIMIENTO ","LJPY 20 "],
+"147": ["UNICEF","VASCE","LJSR 95"],
+"148": ["TAXI","RETIRA PACIENTE","LLJF 80"],
+"149": ["TAQUQEDA","BODEGA","LLVG 75"],
+"150": ["OPCIONES","INFORMATICA ","LLXT 12"],
+"151": ["IDEAL","CASINO","LPYW 39"],
+"152": ["SUIMEDICAL","BODEGA","LRLG 86"],
+"153": ["SEGURIDAD","","LTKH 57"],
+"154": ["STA LUCIA","CASINO","LVBW 78"],
+"155": ["ESAT","","LVGV 42"],
+"156": ["FELIX BULNES","POLI CIRUGIA","LWFR 30"],
+"157": ["ITLANCMEN","ESTERILIZACION","LX 5579"],
+"158": ["LUVEK","AIRE ACONDICIONADO","LXFH 16"],
+"159": ["INTRANSMED","BODEGA","LXSF 79"],
+"160": ["FARMA ","BODEGA","LYCD 52"],
+"161": ["PROSEGUR","CASINO","LYGP 15"],
+"162": ["PLASTICOS GAUPON","BODEGA","LYHC 78"],
+"163": ["MUNI RECOLETA","LABORATORIO","PCLJ 85"],
+"164": ["FRESSEMUS","BODEGA","PCYS 55"],
+"165": ["THERAPHIA","FARMACIA","PCZD 62"],
+"166": ["SALUD CONCHALI","LABORATORIO","PDWJ 73"],
+"167": ["LAB SANDERSON   ","FARMACIA","PFBP 97"],
+"168": ["ABASA CONTROL DE PLAGA","BODEGA","PFTY 16"],
+"169": ["LAURA CORE","BODEGA","PGBF 52"],
+"170": ["ACONDISMEDICAL","PABELLON","PGHH 14"],
+"171": ["H E G CORTES","LABORATORIO","PGHH 59"],
+"172": ["FIREGREIND","BODEGA","PGSX 99"],
+"173": ["ABG","FARMACIA","PGVP 94"],
+"174": ["","PABELLON","PHTT 59"],
+"175": ["PARACLINIC","BUSCAR PACIENTE","PHUR 75"],
+"176": ["DIMER ","BODEGA","PHYW 46"],
+"177": ["LAB ROCHO","LABORATORIO","PJHS 20"],
+"178": ["SMT","FARMACIA","PJPC 65"],
+"179": ["LUBEC","CASINO","PKVR 75"],
+"180": ["VEOLIA ","","PLGB 86"],
+"181": ["DOUBLE MEDICAL","BODEGA","PLKW 64"],
+"182": ["PB EQUIPOS","LABORATORIO","PLPR 34"],
+"183": ["HOSP. GUST. FREAK","LABORATORIO","PLYD 66"],
+"184": ["","FARMACIA","PLZD 62"],
+"185": ["VEOLIA","BODEGA","PMXZ 56"],
+"186": ["ALTOFEM","","PPPE 33"],
+"187": ["COCHALI CCR","LABORATORIO ","PPWJ 73"],
+"188": ["","BODEGA","PPWY 16"],
+"189": ["DEFENSORIA  DEL  NIÑO","","PPWZ 54"],
+"190": ["FUN NUESTROS HIJOS ","ONCOLOGIA ","PPZC 99"],
+"191": ["PARACLINIC","ESTERILIZACION","PPZZ 69"],
+"192": ["MINSAL","LABORATORIO","PSHJ 43"],
+"193": ["CHILE EXPRES","LABORATORIO","PSPG 29"],
+"194": ["CORP MEDICAL","SALA EMODNAMIA","PSXW 92"],
+"195": ["CAR AGUSTIN ","BODEGA","PTGC 21"],
+"196": ["LSF ING","AIRE ACONDICIONADO","PYYV 76"],
+"197": ["TECNOREDICAL","ESTERILIZACION","RBCB 32"],
+"198": ["THERAPHIA","FARMACIA","RCLX 28"],
+"199": ["SANTA LUCIA","CIRUGIA","RJHW 93"],
+"200": ["SMT","FARMACIA","RKBZ 22"],
+"201": ["DEFENSORIA  DEL NIÑO","","RYBL 89"],
+"202": ["STA LUCIA ","UCI CARDIO","TJHW 92"],
+"203": ["LUBEC","CASINO","TKVR 75"],
+"204": ["UCI INDUCE","UCI","XPXC 31"],
+"205": ["Ingresa el Proveedor","Ingresa el Destino","Ingresa la PPU"],
+
+    }
+
+function cambioOpciones3(){
+    var combo2 = document.getElementById('opciones3');
+    var opcion3 = combo2.value;
+    document.getElementById('nombre2').value = opciones3[opcion3][0];
+    document.getElementById('depto2').value = opciones3[opcion3][1];
+    document.getElementById('ppu44').value = opciones3[opcion3][2];
+    }
+</script>  
+
+</body>
+</html>
